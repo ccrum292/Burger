@@ -1,13 +1,19 @@
 body{
-  background-color: yellow;
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/81w3AUhErYL.jpg);
 
 }
 
-h1{
+h3, h2{
   text-align: center;
-  margin-bottom: 25px;
-  margin-top: 15px;;
+  color: yellow;
+  text-shadow: -2px 0 red, 0 2px red, 2px 0 red, 0 -2px red;
 }
+
+ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+
 
 main{
   width: 66%;
@@ -15,22 +21,19 @@ main{
   margin-right: auto;
 }
 
-#div-one{
+#div-one, #div-two{
   
-  background-color: white;
+  text-align: center;
+  color: yellow;
+  text-shadow: -2px 0 red, 0 2px red, 2px 0 red, 0 -2px red;
 }
 
-#div-two{
-  
-  background-color: red;
-}
 
-#div-three{
-
-  background-color: green;
-  margin-top: 30px;
-}
 
 #div-three-button, #test-area{
   display: block;
+}
+
+#add-burger{
+  text-align: center;
 }

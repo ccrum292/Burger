@@ -1,28 +1,27 @@
-<h1>Burger</h1>
-
-
 <main class="container">
   <div class="row">
-    <div class="col-4 mx-auto pt-3" id="div-one">
+    <div class="col-4 mx-auto rounded-lg pt-3 mt-3" id="div-one">
+      <h2>Order Up</h2>
       <ul>
         {{#each burgersMade}}
           <li class="mx-auto">
             <p>
-              {{ id }}. {{ burger_name }}
+              {{ burger_name }}
 
-              <button data-burgerId="{{ id }}" class="btn btn-primary eatBurger">Eat</button>
+              <button data-burgerId="{{ id }}" class="btn btn-danger eatBurger">Eat</button>
             </p>
           </li>
         {{/each}}
       </ul>
      </div>
 
-    <div class="col-4 mx-auto pt-3" id="div-two">
+    <div class="col-4 mx-auto pt-3 rounded-lg mt-3" id="div-two">
+      <h2>Devoured</h2>
       <ul>
         {{#each burgersEaten}}
           <li>
             <p>
-              {{ id }}. {{ burger_name }}
+              {{ burger_name }}
             </p>
           </li>
         {{/each}}
@@ -30,10 +29,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-6 mx-auto" id="div-three">
+    <div class="col-6 mx-auto rounded-lg mb-3" id="div-three">
       <form id="add-burger" class="mt-3 mb-3">
-        <textarea id="text-area" type="text" class="mx-auto" name="burger"></textarea>
-        <button id="div-three-button" class="btn btn-primary mx-auto" type="submit">Add</button>
+        <h3>Place Your Order</h3>
+        <input id="text-area" type="text" class="mb-2" name="burger"></input>
+        <button id="div-three-button" class="btn btn-danger mx-auto" type="submit">Add</button>
       </form>
     </div>
   </div>
