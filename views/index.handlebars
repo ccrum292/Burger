@@ -1,0 +1,77 @@
+<h1>Burger</h1>
+
+
+<main class="container">
+  <div class="row">
+    <div class="col-4 mx-auto pt-3" id="div-one">
+      <ul>
+        {{#each burgersMade}}
+          <li class="mx-auto">
+            <p>
+              {{ id }}. {{ burger_name }}
+
+              <button data-burgerId="{{ id }}" class="btn btn-primary eatBurger">Eat</button>
+            </p>
+          </li>
+        {{/each}}
+      </ul>
+     </div>
+
+    <div class="col-4 mx-auto pt-3" id="div-two">
+      <ul>
+        {{#each burgersEaten}}
+          <li>
+            <p>
+              {{ id }}. {{ burger_name }}
+            </p>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 mx-auto" id="div-three">
+      <form id="add-burger" class="mt-3 mb-3">
+        <textarea id="text-area" type="text" class="mx-auto" name="burger"></textarea>
+        <button id="div-three-button" class="btn btn-primary mx-auto" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+
+</main>
+
+<script type="text/javascript">
+
+  $(document).on("click", ".eatBurger", function(event){ 
+    event.preventDefault();
+    
+    var id = $(this).data("burgerid")
+
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT"
+    }).then(function(){
+      console.log("updated id ", id);
+      location.reload();
+    });
+
+  });
+
+  $(document).on("submit", "#add-burger", function(event){ 
+    event.preventDefault();
+    console.log("workin");
+    
+    var newBurger = {
+      burger_name: $("#add-burger [name=burger]").val().trim()
+    };
+    console.log(newBurger);
+    $.ajax("/api/burgers/", {
+      type: "POST",
+      data: newBurger
+    }).then(function(){
+      console.log("added burger")
+      location.reload()
+    });
+
+  });
+
+</script>
